@@ -82,23 +82,85 @@ cursor: pointer;
 form button:hover {
 background: #da5d0b;
 }
+
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .custom-loader {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  }
+  .custom-loader::before,
+  .custom-loader::after {    
+  content:"";
+  grid-area: 1/1;
+  --c: radial-gradient(farthest-side,#f88131 92%,#0000);
+  background: 
+    var(--c) 50%  0, 
+    var(--c) 50%  100%, 
+    var(--c) 100% 50%, 
+    var(--c) 0    50%;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  animation: s2 1s infinite;
+  }
+  .custom-loader::before {
+  margin:4px;
+  filter:hue-rotate(45deg);
+  background-size: 8px 8px;
+  animation-timing-function: linear
+  }
+  
+  @keyframes s2{ 
+  100%{transform: rotate(.5turn)}
+  }
+
 .errorMessage{
   color: red;
   font-weight: 600;
 }
-
-.profilePage{
-  font-size: 1.2em;
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  padding: 30px;
+  position: relative;
+  margin: 1rem auto;
+  }
+  
+.name-img{
+display: flex;
 }
 
-td:first-child{
-  background-color: #242424;
-  color: white;
+img {
+width: 80px;
 }
-td:last-child{
-  background-color: #e2dede;
-  color: #213547;
+
+.key{
+font-weight: bold;
+letter-spacing: 1px;
+color: #31a8f8;
+border: 1px solid black;
+border-radius: 5px;
+padding: 10px;
 }
-a{
-  text-decoration: none;
+
+.value{
+font-family: 'Courier New', Courier, monospace;
+letter-spacing: 1px;
+border: 1px solid black;
+border-radius: 5px;
+padding: 10px;
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }

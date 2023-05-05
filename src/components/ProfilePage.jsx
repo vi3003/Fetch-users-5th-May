@@ -13,153 +13,89 @@ const ProfilePage=()=>{
     useEffect(()=>{
           dispatch(fetchUser(id));
     },[])
-    if(loading) return <h1>Loading...</h1>
+    if (loading) {
+        return (
+            <div className="loader">
+                <p className="custom-loader">Loading...</p>
+            </div>
+        )
+    }
     if(error) return <h1>{error}</h1>
-    return <div className="ProfilePage">
-      <h1>Profile Page</h1>
-      <img src={userData.image} alt="user-image"/>
-        <table>
-        <tbody>
-          <tr>
-            <td>ID</td>
-            <td>{userData.id}</td>
-          </tr>
-          <tr>
-            <td>USER NAME</td>
-            <td>{userData.username}</td>
-          </tr>
-          <tr>
-            <td>FIRST NAME</td>
-            <td>{userData.firstName}</td>
-          </tr>
-          <tr>
-            <td>LAST NAME</td>
-            <td>{userData.lastName}</td>
-          </tr>
-          <tr>
-            <td>MAIDEN NAME</td>
-            <td>{userData.maidenName}</td>
-          </tr>
-          <tr>
-            <td>GENDER</td>
-            <td>{userData.gender}</td>
-          </tr>
-          <tr>
-            <td>SSN</td>
-            <td>{userData.ssn}</td>
-          </tr>
-          <tr>
-            <td>EIN</td>
-            <td>{userData.ein}</td>
-          </tr>
-          <tr>
-            <td>PHONE NO</td>
-            <td>{userData.phone}</td>
-          </tr>
-          <tr>
-            <td>E-MAIL</td>
-            <td>{userData.email}</td>
-          </tr>
-          <tr>
-            <td>ADDRESS</td>
-            <td>
-              {userData.address.address} {userData.address.city}{" "}
-              {userData.address.state} {userData.address.postalCode}
-            </td>
-          </tr>
-          <tr>
-            <td>UNIVERSITY</td>
-            <td>{userData.university}</td>
-          </tr>
-          <tr>
-            <td>COMPANY NAME</td>
-            <td>{userData.company.name}</td>
-          </tr>
-          <tr>
-            <td>DESIGNATION</td>
-            <td>{userData.company.title}</td>
-          </tr>
-          <tr>
-            <td>DEPARTMENT</td>
-            <td>{userData.company.department}</td>
-          </tr>
-          <tr>
-            <td>DOMAIN</td>
-            <td>{userData.domain}</td>
-          </tr>
-          <tr>
-            <td>COMPANY ADDRESS</td>
-            <td>
-              {userData.company.address.address}{" "}
-              {userData.company.address.city} {userData.company.address.state}{" "}
-              {userData.company.address.postalCode}
-            </td>
-          </tr>
-          <tr>
-            <td>IBAN</td>
-            <td>{userData.bank.iban}</td>
-          </tr>
-          <tr>
-            <td>CARD NO</td>
-            <td>{userData.bank.cardNumber}</td>
-          </tr>
-          <tr>
-            <td>CARD TYPE</td>
-            <td>{userData.bank.cardType}</td>
-          </tr>
-          <tr>
-            <td>CARD EXPIRY</td>
-            <td>{userData.bank.cardExpire}</td>
-          </tr>
-          <tr>
-            <td>CURRENCY</td>
-            <td>{userData.bank.currency}</td>
-          </tr>
-          <tr>
-            <td>MAC ADDRESS</td>
-            <td>{userData.macAddress}</td>
-          </tr>
-          <tr>
-            <td>IP ADDRESS</td>
-            <td>{userData.ip}</td>
-          </tr>
-          <tr>
-            <td>USER AGENT</td>
-            <td>{userData.userAgent}</td>
-          </tr>
-          <tr>
-            <td>BIRTH DATE</td>
-            <td>{userData.birthDate}</td>
-          </tr>
-          <tr>
-            <td>AGE</td>
-            <td>{userData.age}</td>
-          </tr>
-          <tr>
-            <td>WEIGHT</td>
-            <td>{userData.weight}</td>
-          </tr>
-          <tr>
-            <td>HEIGHT</td>
-            <td>{userData.height}</td>
-          </tr>
-          <tr>
-            <td>EYE COLOR</td>
-            <td>{userData.eyeColor}</td>
-          </tr>
-          <tr>
-            <td>BLOOD GROUP</td>
-            <td>{userData.bloodGroup}</td>
-          </tr>
-          <tr>
-            <td>HAIR COLOR & TYPE</td>
-            <td>
-              {userData.hair.color} {userData.hair.type}
-            </td>
-          </tr>
-          </tbody>
-        </table>
-  </div>
+    return <div className="box">
+    <div className="name-img">
+        <h1>
+            {data?.firstName} {data.lastName}
+        </h1>
+        <img src={data.image} alt="" />
+    </div>
+    <p className="card">
+        <span className="key">Email:</span>{" "}
+        <span className="value">{data.email}</span>
+    </p>
+    <p className="card">
+        <span className="key">Phone:</span>{" "}
+        <span className="value">{data.phone}</span>
+    </p>
+    <p className="card">
+        <span className="key">Username:</span>{" "}
+        <span className="value">{data.username}</span>
+    </p>
+    <p className="card">
+        <span className="key">Birthday:</span>{" "}
+        <span className="value">{data.birthDate}</span>
+    </p>
+    <p className="card">
+        <span className="key">Gender:</span>{" "}
+        <span className="value">{data.gender}</span>
+    </p>
+    <p className="card">
+        <span className="key">Address:</span>{" "}
+        <span className="value">
+            {data.address.address}, {data.address.city},{" "}
+            {data.address.state} {data.address.postalCode}
+        </span>
+    </p>
+    <p className="card">
+        <span className="key">University:</span>{" "}
+        <span className="value">{data.university}</span>
+    </p>
+    <p className="card">
+        <span className="key">Company:</span>{" "}
+        <span className="value">{data.company.name}</span>
+    </p>
+    <p className="card">
+        <span className="key">Job Title:</span>{" "}
+        <span className="value">{data.company.title}</span>
+    </p>
+    <p className="card">
+        <span className="key">Department:</span>{" "}
+        <span className="value">{data.company.department}</span>
+    </p>
+    <p className="card">
+        <span className="key">Height:</span>{" "}
+        <span className="value">{data.height}cm</span>
+    </p>
+    <p className="card">
+        <span className="key">Weight:</span>{" "}
+        <span className="value">{data.weight}kg</span>
+    </p>
+    <p className="card">
+        <span className="key">Eye Color:</span>{" "}
+        <span className="value">{data.eyeColor}</span>
+    </p>
+    <p className="card">
+        <span className="key">Hair Color:</span>{" "}
+        <span className="value">{data.hair.color}</span>
+    </p>
+    <p className="card">
+        <span className="key">Hair Type:</span>{" "}
+        <span className="value">{data.hair.type}</span>
+    </p>
+    <p className="card">
+        <span className="key">Blood Group:</span>{" "}
+        <span className="value">{data.bloodGroup}</span>
+    </p>
+</div>
 }
 
 export default ProfilePage
