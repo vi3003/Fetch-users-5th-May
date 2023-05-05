@@ -123,44 +123,18 @@ background: #da5d0b;
   color: red;
   font-weight: 600;
 }
-.box{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 600px;
-  padding: 30px;
-  position: relative;
-  margin: 1rem auto;
-  }
-  
-.name-img{
-display: flex;
+.profilePage{
+  font-size: 1.2em;
 }
 
-img {
-width: 80px;
+td:first-child{
+  background-color: #000;
+  color: #f88131;
 }
-
-.key{
-font-weight: bold;
-letter-spacing: 1px;
-color: #31a8f8;
-border: 1px solid black;
-border-radius: 5px;
-padding: 10px;
+td:last-child{
+  background-color: #e2dede;
+  color: #35f048;
 }
-
-.value{
-font-family: 'Courier New', Courier, monospace;
-letter-spacing: 1px;
-border: 1px solid black;
-border-radius: 5px;
-padding: 10px;
-}
-
-.card {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+a{
+  text-decoration: none;
 }
