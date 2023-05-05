@@ -22,7 +22,7 @@ const ProfilePage=()=>{
     }
     if(error) return <h1>{error}</h1>
     return <div className="ProfilePage">
-      <h1>Profile Page</h1>
+      <h1>{userData?.firstName}{userData.lastName}</h1>
       <img src={userData.image} alt="user-image"/>
         <table>
         <tbody>
