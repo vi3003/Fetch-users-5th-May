@@ -20,8 +20,8 @@ const ProfilePage=()=>{
             </div>
         )
     }
-    if(error) return <h1>{error}</h1>
-    return <div className="box">
+    if(error) return (<h1>{error}</h1>)
+    return (<div className="box">
         <div className="name-img">
         <h1>
             {userData?.firstName} {userData.lastName}
@@ -95,7 +95,7 @@ const ProfilePage=()=>{
         <span className="key">Blood Group:</span>{" "}
         <span className="value">{userData.bloodGroup}</span>
     </p>
-</div>
+</div>)
 }
 
 export default ProfilePage
