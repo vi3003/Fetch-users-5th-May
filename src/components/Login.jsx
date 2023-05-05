@@ -13,32 +13,19 @@ const Login=()=>{
         dispatch(validateUser(username,password));
     }
     return <div className="login">
-        <form action="">
+        <form onSubmit={handleLogin}>
                 <h1>Login Page</h1>
                 <div>
                     <label htmlFor="username">Enter Username: </label>
-                    <input
-                        type="text"
-                        name=""
-                        id="username"
-                        required
-                        autoComplete="off"
-                        value={username}
-                        onChange={handleUsernameChange}
-                    />
+                    <input type="text" placeholder="Username" onChange={(e)=>setUsername(e.target.value)}/>
                 </div>
                 <div>
                     <label htmlFor="password">Enter Password: </label>
-                    <input
-                        type="password"
-                        name=""
-                        id="password"
-                        required
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
+                    <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
-                <button onClick={clickHandler}>Login</button>
+                <button type="submit">Login</button>
+            <p className="errorMessage">{error}</p>
+            {searching && <p>Validating...</p>}
             </form>
     </div>
 }
